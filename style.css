@@ -153,14 +153,13 @@ color:#333;
 /* PIX */
 
 .pix-area{
-display:none;
+display:none; /* começa escondido */
 
-display:flex;
-flex-direction:column; /* empilha */
-align-items:center;    /* centraliza horizontal */
+flex-direction:column;
+align-items:center;
 justify-content:center;
 
-gap:12px;              /* espaço entre imagem e botão */
+gap:12px;
 margin-top:15px;
 }
 

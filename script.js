@@ -25,11 +25,9 @@ li.innerHTML=`
 <button class="btn-excluir" onclick="removerItem(${index})">
 🗑
 </button>
-
 `;
 
 lista.appendChild(li);
-
 total+=item.preco;
 });
 
@@ -62,9 +60,15 @@ document.getElementById("pagamentoArea").style.display="block";
 
 function selecionarPagamento(tipo){
 
-formaPagamento = tipo;
-
 const pixArea = document.getElementById("pixArea");
+
+if(tipo === "PIX" && formaPagamento === "PIX"){
+    formaPagamento = "";
+    pixArea.style.display = "none";
+    return;
+}
+
+formaPagamento = tipo;
 
 if(tipo === "PIX"){
     pixArea.style.display = "flex";
@@ -74,12 +78,11 @@ if(tipo === "PIX"){
 }
 }
 
-
 function enviarWhatsapp(){
 
 const numero="5534997909676";
 
-let mensagem="🧁 *Novo Pedido*\n\n";
+let mensagem="*Novo Pedido*\n\n";
 let total=0;
 
 carrinho.forEach(item=>{
@@ -87,8 +90,8 @@ mensagem+=`• ${item.nome} - R$ ${item.preco.toFixed(2)}\n`;
 total+=item.preco;
 });
 
-mensagem+=`\n💰 Pagamento: ${formaPagamento}`;
-mensagem+=`\n🧾 Total: R$ ${total.toFixed(2)}`;
+mensagem+=`\nPagamento: ${formaPagamento}`;
+mensagem+=`\nTotal: R$ ${total.toFixed(2)}`;
 
 window.open(
 `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`,

@@ -19,7 +19,7 @@
 <section class="container">
 
 <div class="card">
-<img src="">
+<img src="bolo_brigadeiro.png">
 <div class="card-content">
 <div>
 <h2>Brigadeiro Cremoso</h2>
@@ -33,7 +33,7 @@
 </div>
 
 <div class="card">
-<img src="">
+<img src="bolo_prestigio.png">
 <div class="card-content">
 <div>
 <h2>Prestigio</h2>
@@ -47,7 +47,7 @@
 </div>
 
 <div class="card">
-<img src="">
+<img src="bolo_ninho.png">
 <div class="card-content">
 <div>
 <h2>Leite Ninho</h2>
@@ -61,7 +61,7 @@
 </div>
 
 <div class="card">
-<img src="">
+<img src="bolo_casadinho.png">
 <div class="card-content">
 <div>
 <h2>Casadinho</h2>
@@ -76,6 +76,42 @@
 
 </section>
 
+<!-- BOTÃO SACOLA -->
+<button class="btn-sacola" onclick="abrirSacola()">
+🛍 Sacola <span id="qtdSacola">0</span>
+</button>
+
+<!-- MODAL SACOLA -->
+<div id="modalSacola" class="modal">
+  <div class="modal-content">
+    <h2>Sua Sacola</h2>
+
+    <ul id="listaCarrinho"></ul>
+
+    <p id="total">Total: R$ 0,00</p>
+
+    <button class="finalizar" onclick="abrirPagamento()">
+      Finalizar Pedido
+    </button>
+
+    <div id="pagamentoArea" class="pagamento-area">
+      <h3>Forma de pagamento</h3>
+
+      <button onclick="selecionarPagamento('Dinheiro')">Dinheiro</button>
+      <button onclick="selecionarPagamento('Cartão')">Cartão</button>
+      <button onclick="selecionarPagamento('PIX')">PIX</button>
+    </div>
+
+    <div id="pixArea" class="pix-area">
+      <img src="pix.png" alt="QR Code PIX">
+      <button onclick="enviarWhatsapp()">Enviar pedido no WhatsApp</button>
+    </div>
+
+    <button class="fechar" onclick="fecharSacola()">
+      Fechar
+    </button>
+  </div>
+</div>
 <script src="script.js"></script>
 </body>
 </html>
